@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:14
+    container_name: footballdata-database
+    volumes:
+      - /mnt/footballdata:/var/lib/postgresql/data
+    ports:
+      - ${DATABASE_EXPOSE_PORT}:5432
+    env_file:
+      - .env
+  migration-tool:
+    build: ./docker/migration-tool
+    container_name: footballdata-migration-tool
+    working_dir: /migration
+    volumes:
+    - ./migration:/migration
+    env_file:
+      - .env
+    depends_on:
+      - database
