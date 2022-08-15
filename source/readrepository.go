@@ -45,14 +45,13 @@ func Instance() ReadRepository {
 }
 
 func initReadRepositoryInstance() {
-	sources := []CompetitionSource {
-		NewCompetitionSource(1, "Spanish La Liga", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/esp.1/season/2021"),
-		NewCompetitionSource(2, "English Premier League", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/eng.1/season/2021"),
-		NewCompetitionSource(3, "German Bundesliga", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/ger.1/season/2021"),
-		NewCompetitionSource(4, "Italian Serie A", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/ita.1/season/2021"),
-		NewCompetitionSource(5, "French Ligue 1", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/fra.1/season/2021"),
-		NewCompetitionSource(6, "Russian Premier League", os.Getenv("CRAWLER_HOST") + "/soccer/standings/_/league/rus.1/season/2021"),
-
+	sources := []CompetitionSource{
+		NewCompetitionSource(1, "Spanish La Liga", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/esp.1/season/2021"),
+		NewCompetitionSource(2, "English Premier League", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/eng.1/season/2021"),
+		NewCompetitionSource(3, "German Bundesliga", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/ger.1/season/2021"),
+		NewCompetitionSource(4, "Italian Serie A", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/ita.1/season/2021"),
+		NewCompetitionSource(5, "French Ligue 1", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/fra.1/season/2021"),
+		NewCompetitionSource(6, "Russian Premier League", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/rus.1/season/2021"),
 	}
 
 	readRepositoryInstance = &readRepository{

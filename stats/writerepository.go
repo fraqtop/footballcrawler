@@ -69,7 +69,7 @@ func (w writeRepository) BatchUpdate(stats []stats.Stats) error {
 func (w writeRepository) syncTeams(stats []stats.Stats) error {
 	distinctTeams := make(map[string]coreteam.Team)
 	for _, currentStats := range stats {
-		distinctTeams[currentStats.Team().TitleShort() + currentStats.Team().TitleFull()] = currentStats.Team()
+		distinctTeams[currentStats.Team().TitleShort()+currentStats.Team().TitleFull()] = currentStats.Team()
 	}
 
 	var teams []coreteam.Team

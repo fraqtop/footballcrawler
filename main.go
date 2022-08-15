@@ -49,7 +49,7 @@ func loadStats() {
 		panic(err)
 	}
 
-	statsChannel := make (chan []corestats.Stats)
+	statsChannel := make(chan []corestats.Stats)
 	threadsCount := 0
 	for _, competitionEntity := range competitionRepository.All() {
 		go func(outputChannel chan []corestats.Stats, competitionEntity corecompetitions.Competition, repository corestats.ReadRepository) {

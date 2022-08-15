@@ -22,9 +22,9 @@ func (r readRepository) All() []competition.Competition {
 
 	for query.Next() {
 		var (
-			id int
+			id    int
 			title string
-			uri string
+			uri   string
 		)
 
 		query.Scan(&id, &title, &uri)

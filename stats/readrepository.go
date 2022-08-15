@@ -99,11 +99,11 @@ func (srr readRepository) fetchStatsValues(url string) []int {
 }
 
 func (srr readRepository) fetchSeason(uri string) string {
-	seasonEndSubstring := uri[len(uri) - 4:]
+	seasonEndSubstring := uri[len(uri)-4:]
 	seasonEndYear, err := strconv.Atoi(seasonEndSubstring)
 	if err != nil {
 		seasonEndYear = time.Now().Year()
 	}
 
-	return strconv.Itoa(seasonEndYear) + "-" + strconv.Itoa(seasonEndYear + 1)
+	return strconv.Itoa(seasonEndYear) + "-" + strconv.Itoa(seasonEndYear+1)
 }
