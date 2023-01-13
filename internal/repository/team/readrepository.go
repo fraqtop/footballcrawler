@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/fraqtop/footballcore/competition"
 	"github.com/fraqtop/footballcore/team"
-	"github.com/fraqtop/footballcrawler/source"
+	"github.com/fraqtop/footballcrawler/internal/source"
 	"github.com/gocolly/colly/v2"
 	"os"
 )

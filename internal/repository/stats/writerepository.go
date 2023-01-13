@@ -6,9 +6,9 @@ import (
 	corecompetition "github.com/fraqtop/footballcore/competition"
 	"github.com/fraqtop/footballcore/stats"
 	coreteam "github.com/fraqtop/footballcore/team"
-	"github.com/fraqtop/footballcrawler/competition"
-	"github.com/fraqtop/footballcrawler/connection"
-	"github.com/fraqtop/footballcrawler/team"
+	"github.com/fraqtop/footballcrawler/internal/connection"
+	"github.com/fraqtop/footballcrawler/internal/repository/competition"
+	"github.com/fraqtop/footballcrawler/internal/repository/team"
 	"strings"
 )
 
