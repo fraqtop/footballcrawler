@@ -35,7 +35,7 @@ var loadStatsCmd = &cobra.Command{
 		}
 
 		if threadsCount == 0 {
-			fmt.Println("no competitions loaded, try to run with -mode seed-comps")
+			fmt.Println("no competitions loaded, try to seed them first and then try again")
 			os.Exit(1)
 		}
 
