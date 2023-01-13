@@ -20,3 +20,9 @@ db-modify:
 
 db-down:
 	docker-compose run --rm migration-tool goose down
+
+run-cli-seed:
+	docker-compose run --rm compiler go run . seedCompetitions
+
+run-cli-stats:
+	docker-compose run --rm compiler go run . loadStats

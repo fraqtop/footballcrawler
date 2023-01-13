@@ -3,8 +3,8 @@ package competition
 import (
 	"database/sql"
 	"github.com/fraqtop/footballcore/competition"
-	"github.com/fraqtop/footballcrawler/connection"
-	"github.com/fraqtop/footballcrawler/source"
+	"github.com/fraqtop/footballcrawler/internal/connection"
+	"github.com/fraqtop/footballcrawler/internal/source"
 	"os"
 )
 
