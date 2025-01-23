@@ -2,14 +2,15 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/fraqtop/footballcrawler/internal/repository/competition"
 	"github.com/fraqtop/footballcrawler/internal/source"
-	"os"
 
 	"github.com/spf13/cobra"
 )
 
-const ErrConnectToStorage  = "sorry, can't connect to storage"
+const ErrConnectToStorage = "sorry, can't connect to storage"
 
 var seedCompetitionsCmd = &cobra.Command{
 	Use:   "seedCompetitions",
@@ -24,7 +25,7 @@ var seedCompetitionsCmd = &cobra.Command{
 
 		for _, competitionEntity := range readRepository.Competitions() {
 			if err := writeRepository.Save(competitionEntity); err != nil {
-				fmt.Println("can't save competition", err)
+				fmt.Printf("can't save competition %s cause %s\n", competitionEntity.Title(), err)
 			}
 		}
 	},
