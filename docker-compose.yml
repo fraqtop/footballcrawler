@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   database:
-    image: postgres:14
+    image: postgres:17
     container_name: crawler-database
     volumes:
       - /mnt/footballdata:/var/lib/postgresql/data
@@ -21,7 +19,7 @@ services:
     depends_on:
       - database
   compiler:
-    image: golang:1.17-alpine
+    image: golang:1.22.11-alpine
     container_name: crawler-compiler
     working_dir: /app
     env_file:

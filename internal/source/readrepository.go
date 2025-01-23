@@ -1,8 +1,11 @@
 package source
 
 import (
-	"github.com/fraqtop/footballcore/competition"
+	"fmt"
 	"os"
+	"time"
+
+	"github.com/fraqtop/footballcore/competition"
 )
 
 var readRepositoryInstance *readRepository = nil
@@ -45,13 +48,40 @@ func Instance() ReadRepository {
 }
 
 func initReadRepositoryInstance() {
-	sources := []CompetitionSource{
-		NewCompetitionSource(1, "Spanish La Liga", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/esp.1/season/2021"),
-		NewCompetitionSource(2, "English Premier League", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/eng.1/season/2021"),
-		NewCompetitionSource(3, "German Bundesliga", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/ger.1/season/2021"),
-		NewCompetitionSource(4, "Italian Serie A", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/ita.1/season/2021"),
-		NewCompetitionSource(5, "French Ligue 1", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/fra.1/season/2021"),
-		NewCompetitionSource(6, "Russian Premier League", os.Getenv("CRAWLER_HOST")+"/soccer/standings/_/league/rus.1/season/2021"),
+	year, month, _ := time.Now().Date()
+	//season started in prev year
+	if month < 9 {
+		year--
+	}
+	fullNames := []string{
+		"Spanish La Liga",
+		"English Premier League",
+		"German Bundesliga",
+		"Italian Serie A",
+		"French Ligue 1",
+		"Russian Premier League",
+	}
+	uriNames := []string{
+		"esp.1",
+		"eng.1",
+		"ger.1",
+		"ita.1",
+		"fra.1",
+		"rus.1",
+	}
+
+	sources := make([]CompetitionSource, 0, len(fullNames))
+	for i, currFullName := range fullNames {
+		sources = append(sources, NewCompetitionSource(
+			i+1,
+			currFullName,
+			fmt.Sprintf(
+				"%s/soccer/standings/_/league/%s/season/%d",
+				os.Getenv("CRAWLER_HOST"),
+				uriNames[i],
+				year,
+			)),
+		)
 	}
 
 	readRepositoryInstance = &readRepository{
